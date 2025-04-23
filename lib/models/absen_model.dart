@@ -3,16 +3,20 @@ class AbsenModel {
   final String username;
   final double latitude;
   final double longitude;
-  final String imagePath;
   final String timestamp;
+  final String imagePath;
+  final String jenis;
+  final String status;
 
   AbsenModel({
     this.id,
     required this.username,
     required this.latitude,
     required this.longitude,
-    required this.imagePath,
     required this.timestamp,
+    required this.imagePath,
+    required this.jenis,
+    required this.status,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,8 +25,10 @@ class AbsenModel {
       'username': username,
       'latitude': latitude,
       'longitude': longitude,
-      'imagePath': imagePath,
       'timestamp': timestamp,
+      'imagePath': imagePath,
+      'jenis': jenis,
+      'status': status,
     };
   }
 
@@ -32,8 +38,10 @@ class AbsenModel {
       username: map['username'],
       latitude: map['latitude'],
       longitude: map['longitude'],
-      imagePath: map['imagePath'],
       timestamp: map['timestamp'],
+      imagePath: map['imagePath'],
+      jenis: map['jenis'],
+      status: map['status'],
     );
   }
 }

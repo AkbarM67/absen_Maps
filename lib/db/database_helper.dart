@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../models/user_model.dart';
@@ -36,18 +37,18 @@ class DatabaseHelper {
     ''');
 
     await db.execute('''
-      CREATE TABLE $absenTable (
+      CREATE TABLE absen (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT,
         latitude REAL,
         longitude REAL,
-        imagePath TEXT,
         timestamp TEXT,
-        status TEXT,
-        pulangTime TEXT
+        imagePath TEXT,
+        jenis TEXT,
+        status TEXT
       )
     ''');
-  }
+    }
 
   // ================= USER =================
   Future<int> insertUser(UserModel user) async {
@@ -99,5 +100,19 @@ class DatabaseHelper {
   return List.generate(maps.length, (i) {
     return AbsenModel.fromMap(maps[i]);
   });
+}
+
+Future<bool> hasAbsenToday(String username, String jenis) async {
+  final db = await database;
+  final today = DateTime.now();
+  final todayPrefix = DateFormat('yyyy-MM-dd').format(today); // Format ISO Date
+
+  final result = await db.query(
+    'absen',
+    where: 'username = ? AND jenis = ? AND timestamp LIKE ?',
+    whereArgs: [username, jenis, '$todayPrefix%'],
+  );
+
+  return result.isNotEmpty;
 }
 }
