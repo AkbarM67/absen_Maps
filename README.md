@@ -1,6 +1,11 @@
 # google_map
 
-A new Flutter project.
+aplikasi absen yang mempunyai fitur maps dan kamera, saat akan absen masuk harus foto terlebih dahulu dan hanya bisa di kawasan kantor, dan saat pulang juga sama seperti saat masuk, ini hanya bisa di pakai satu hari 1 kali untuk masuk dan pulang
+
+
+## tampilan
+
+https://imgur.com/a/bZomsti
 
 ## Getting Started
 
