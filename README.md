@@ -5,7 +5,7 @@ aplikasi absen yang mempunyai fitur maps dan kamera, saat akan absen masuk harus
 
 ## tampilan
 
-https://imgur.com/a/bZomsti
+[img]https://i.imgur.com/D0Fzokt.jpeg[/img]
 
 ## Getting Started
 
